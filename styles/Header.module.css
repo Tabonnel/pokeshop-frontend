@@ -64,3 +64,18 @@
   justify-content: space-between;
   width: 7rem;
 }
+
+
+.registerContainer {
+	display: flex;
+	margin-bottom: 10px;
+	border-top: 0.5px lightgray solid;
+}
+
+.registerSection {
+	width: 250px;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

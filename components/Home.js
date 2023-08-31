@@ -36,11 +36,10 @@ function Home() {
 
   return (
     <div>
-      {/* <GoogleFontLoader fonts={[{ font: 'Press Start 2P', weights: [400] }]} /> */}
       <Header></Header>
       <main className={styles.main}>
         <div className={styles.backgroundContainer}>
-        <h1 className={`${styles.title} ${styles.pressStartFont}`} >Poke Shop</h1>
+        <h1 className={styles.title} >Poke Shop</h1>
           <img src="/background-home.jpg" className={styles.backgroundImage} />
         </div>
         {Pokemons}
