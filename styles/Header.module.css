@@ -6,8 +6,11 @@
   background-color: whitesmoke;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   width: 100vw;
-  height: 6rem;
+  height: 10vh;
   font-size: 20px;
+  position: fixed;
+  z-index: 1;
+  
 }
 .menu {
   display: flex;
@@ -20,7 +23,7 @@
   border-radius: 50%;
   cursor: pointer;
 }
-.homeItem {
+.menuItem {
   margin-right: 1rem;
   font-size: larger;
   cursor: pointer;
@@ -28,7 +31,7 @@
   /* text-decoration: none; */
 
 }
-.homeLink{
+.menuLink{
     text-decoration: none;
     
 }

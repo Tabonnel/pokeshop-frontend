@@ -20,9 +20,14 @@ function Header() {
             className={styles.logoImg}
           />
         </div>
-        <div className={styles.homeItem}>
+        <div className={styles.menuItem}>
           <Link href="/">
-            <p className={styles.homeLink}>Home</p>
+            <p className={styles.menuLink}>Home</p>
+          </Link>
+        </div>
+        <div className={styles.menuItem}>
+          <Link href="#scrollPoint"  >
+            <p className={styles.menuLink}>Shop</p>
           </Link>
         </div>
       </div>
