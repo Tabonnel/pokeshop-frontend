@@ -50,7 +50,6 @@ function Home() {
 
   return (
     <div>
-      {/* <GoogleFontLoader fonts={[{ font: 'Press Start 2P', weights: [400] }]} /> */}
       <Header></Header>
       <main className={styles.main}>
         <div className={styles.backgroundContainer}>
