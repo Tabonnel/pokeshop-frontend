@@ -17,9 +17,9 @@
     "antd": "^5.8.5",
     "aos": "^2.3.4",
     "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-google-font-loader": "^1.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-parallax-tilt": "^1.7.164",
     "react-redux": "^8.1.2",
     "react-scroll": "^1.8.9",
     "yarn": "^1.22.19"

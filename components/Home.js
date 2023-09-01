@@ -1,6 +1,5 @@
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
-import GoogleFontLoader from "react-google-font-loader";
 import React from "react";
 import Pokemon from "../components/Pokemon";
 import { useState, useEffect } from "react";
@@ -9,6 +8,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+
 
 function Home() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -56,15 +56,17 @@ function Home() {
           <img src="/background-home.jpg" className={styles.backgroundImage} />
         </div>
         <div>
-          <h1 className={styles.title}>
-            Poke Shop
-          </h1>
+          <h1 className={styles.title}>Poke Shop</h1>
           <div className={styles.pokemonGrid} id="scrollPoint">
-            {Pokemons}
+              {Pokemons}
           </div>
         </div>
         <div className={styles.scrollButton} onClick={scrollToTop}>
-          <FontAwesomeIcon icon={faArrowUp} size="lg" className={styles.arrowUp} />
+          <FontAwesomeIcon
+            icon={faArrowUp}
+            size="lg"
+            className={styles.arrowUp}
+          />
         </div>
       </main>
     </div>

@@ -1,4 +1,116 @@
-.cardContainer {
+
+.cardWrapper {
+	background-color: rgba(255, 217, 0, 1);
+	padding: 15px;
+	border-radius: 8px;
+	box-shadow: 0px 5px 5px rgba(255, 255, 255, 0.657);
+	transition: box-shadow 0.5s;
+	margin: 50px
+  }
+  
+  .cardWrapper:hover {
+	box-shadow: 0px 8px 20px rgb(255, 255, 255);
+  }
+  
+  .card {
+	width: 256px;
+	height: 400px;
+	padding: 0 20px 0 20px;
+	display: flex;
+	flex-direction: column;
+	color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .card__header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	
+	
+  }
+  
+  .card__header h1
+{
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+	font-size: 1.5rem;
+  }
+  
+  .card__header h1::first-letter {
+	text-transform: capitalize;
+  }
+  
+  .card__image {
+	width: 100%;
+	height: auto;
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	bottom: 18px;
+  }
+  
+  .card__imageContainer {
+	width: 96%;
+	height: 170px;
+	border: 7px rgb(255, 217, 0) solid;
+
+	overflow: hidden;
+  }
+  
+  .card__imageContainer img {
+	position: relative;
+	bottom: 5%;
+	width: 80%;
+	animation: fadein 2s;
+	filter: hue-rotate(0deg) saturate(100%) brightness(100%) drop-shadow(0 1mm 0.6mm rgba(0, 0, 0, 0.5));
+  }
+  
+  .typeContainer {
+	font-size: 15px;
+	font-style: italic;
+	font-weight: bold;
+	width: 95%;
+	background: radial-gradient(circle, rgba(113, 49, 49, 1) 0%, rgba(255, 251, 200, 1) 0%, rgba(204, 182, 65, 1) 100%);
+	position: relative;
+	bottom: 10px;
+	top: 10px;
+  }
+  
+  .card__description {
+	margin-top: 0px;
+	padding: 0 20px 0 20px;
+	text-align: left;
+	height: 150px;
+	overflow: auto;
+  }
+
+  .bottomInfos{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top:60px;
+	padding:15px;
+}
+
+.priceCard{
+	font-size: 1.2rem;
+	padding: 4px;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.toCartBtn{
+	padding: 4px;
+	padding-right: 2px;
+	border-radius: 5px;
+	cursor: pointer;
+
+}
+  
+
+/* .cardContainer {
 	background-color: #eee;
 	border-radius: 20px;
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
@@ -65,4 +177,7 @@
 	border-radius: 5px;
 	cursor: pointer;
 
-}
+} */
+ 
+  
+  
