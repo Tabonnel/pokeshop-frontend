@@ -30,7 +30,6 @@ function Cart() {
       );
     });
     setCartData(CartData);
- 
   }, [cart]);
 
   return (
@@ -43,17 +42,40 @@ function Cart() {
 
         <div className={styles.cartItemsContainer}>
           <div className={styles.cartItemsHeader}>
-            <p className={styles.cartItemsHeaderName}>Carte</p>
-            <p className={styles.cartItemsHeaderType}>Type</p>
-            <p className={styles.cartItemsHeaderPrice}>Prix</p>
-            <p className={styles.cartItemsHeaderQuantity}>Quantité</p>
-            <p className={styles.cartTitemsHeaderTotal}>Total</p>
+            <div className={styles.cartItemsHeaderName}>
+              <p>Carte</p>
+            </div>
+            <div className={styles.cartItemsHeaderType}>
+              <p>Type</p>
+            </div>
+            <div className={styles.cartItemsHeaderPrice}>
+              <p>Prix</p>
+            </div>
+            <div className={styles.cartItemsHeaderQuantity}>
+              <p>Quantité</p>
+            </div>
+            <div className={styles.cartItemsHeaderTotal}>
+              <p>Total</p>
+            </div>
           </div>
           {cartData.length > 0 ? (
             cartData
           ) : (
             <div className={styles.emptyCartContainer}>
               <p className={styles.emptyCartText}>Votre panier est vide</p>
+            </div>
+          )}
+
+          {cartData.length > 0 ? (
+            ""
+          ) : (
+            <div className={styles.cartItemsFooter}>
+              <div className={styles.cartItemsFooterTotal}>
+                <p>Total</p>
+              </div>
+              <div className={styles.cartItemsFooterPrice}>
+                <p>€</p>
+              </div>
             </div>
           )}
         </div>
