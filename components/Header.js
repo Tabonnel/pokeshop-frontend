@@ -8,7 +8,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { Modal } from "antd";
+import { Modal, Popover } from "antd";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "../reducers/user";
@@ -17,16 +17,14 @@ function Header() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalConnexionVisible, setIsModalConnexionVisible] = useState(false);
+  const [isModalRegisterVisible, setIsModalRegisterVisible] = useState(false);
   const [signUpEmail, setSignUpEmail] = useState("");
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
 
-  const showModal = () => {
-    setIsModalVisible(!isModalVisible);
-  };
 
   console.log(user);
 
@@ -46,7 +44,7 @@ function Header() {
           dispatch(login({ email: signUpEmail, token: data.token }));
           setSignUpUsername("");
           setSignUpPassword("");
-          setIsModalVisible(false);
+          setIsModalRegisterVisible(false);
         }
       });
   };
@@ -69,10 +67,22 @@ function Header() {
           );
           setSignInEmail("");
           setSignInPassword("");
-          setIsModalVisible(false);
+          setIsModalConnexionVisible(false);
         }
       });
   };
+
+  const popoverContent = (
+    <div>
+     <button onClick={() => setIsModalConnexionVisible(true)}>Sign In</button>
+      <button onClick={() => setIsModalRegisterVisible(true)}>Sign Up</button>
+    </div>
+  );
+
+  const closeModals = () => {
+    setIsModalConnexionVisible(false);
+    setIsModalRegisterVisible(false)
+  }
 
   let modalContentConnexion;
 
@@ -98,12 +108,11 @@ function Header() {
     </div>
   );
 
-  let modalContentResgister;
+  let modalContentRegister;
 
-  modalContentResgister = (
-    <div className={styles.registerContainer}>
+  modalContentRegister = (
+    
       <div className={styles.registerSection}>
-        <p>Sign-up</p>
         <input
           type="text"
           placeholder="Username"
@@ -129,7 +138,7 @@ function Header() {
           Register
         </button>
       </div>
-    </div>
+    
   );
 
   return (
@@ -170,7 +179,10 @@ function Header() {
             <span onClick={() => dispatch(logout())}>Logout</span>
           </div>
         ) : (
-          <FontAwesomeIcon icon={faUser} size="lg" onClick={showModal} />
+          <Popover content={popoverContent}>
+              <FontAwesomeIcon icon={faUser} size="lg" />
+          </Popover>
+          
         )}
         <FontAwesomeIcon icon={faHeart} size="lg" />
         <Link href="/Cart">
@@ -180,19 +192,37 @@ function Header() {
 
       <Modal
         title="Sign In"
-        open={isModalVisible}
+        open={isModalConnexionVisible}
         footer=""
         closable={false}
         mask={true}
       >
         <button
           className={styles.closeButton}
-          onClick={() => setIsModalVisible(false)}
+          onClick={() => closeModals()}
         >
           <FontAwesomeIcon icon={faXmark} size="lg" />
         </button>
 
         {modalContentConnexion}
+      </Modal>
+      <Modal
+        title="Sign Up"
+        open={isModalRegisterVisible}
+        footer=""
+        closable={false}
+        mask={true}
+        width={800} 
+        height={300} 
+      >
+        <button
+          className={styles.closeButton}
+          onClick={() => closeModals()}
+        >
+          <FontAwesomeIcon icon={faXmark} size="lg" />
+        </button>
+
+        {modalContentRegister}
       </Modal>
     </header>
   );

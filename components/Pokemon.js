@@ -76,11 +76,12 @@ function Pokemon({ name, type, image, price, stock, number }) {
 
   return (
     <Tilt
-      glareEnable={false}
+      glareEnable={true}
+      glareMaxOpacity={0.3}
       tiltMaxAngleX={20}
       tiltMaxAngleY={20}
       perspective={10000}
-      glareColor={"rgba(250,250,250,0.3)"}
+      glareColor={"rgba(250,250,250)"}
       glareBorderRadius="6px"
       scale={1.2}
     >
