@@ -11,7 +11,7 @@ import { Modal } from "antd";
 
 function Cart() {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.value);
+  const cart = useSelector((state) => state.cart.items);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
@@ -25,17 +25,38 @@ function Cart() {
           price={item.price}
           stock={item.stock}
           number={item.number}
+          quantity={item.quantity}
         ></CartItem>
       );
     });
     setCartData(CartData);
+ 
   }, []);
 
   return (
-    <div>
+    <div className={styles.body}>
       <Header></Header>
       <div className={styles.cartContainer}>
-        <div className={styles.cartItemsContainer}>Bonjour</div>
+        <div className={styles.cartHeader}>
+          <p className={styles.cartHeaderTitle}>Panier</p>
+        </div>
+
+        <div className={styles.cartItemsContainer}>
+          <div className={styles.cartItemsHeader}>
+            <p className={styles.cartItemsHeaderName}>Carte</p>
+            <p className={styles.cartItemsHeaderType}>Type</p>
+            <p className={styles.cartItemsHeaderPrice}>Prix</p>
+            <p className={styles.cartItemsHeaderQuantity}>Quantité</p>
+            <p className={styles.cartTitemsHeaderTotal}>Total</p>
+          </div>
+          {cartData.length > 0 ? (
+            cartData
+          ) : (
+            <div className={styles.emptyCartContainer}>
+              <p className={styles.emptyCartText}>Votre panier est vide</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

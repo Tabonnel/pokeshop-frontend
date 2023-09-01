@@ -1,17 +1,61 @@
-.cartContainer{
-    
-    height: 100vh;
+.body{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
     width: 100vw;
+    height: 100vh;
+}
+
+.cartContainer{
+    display: flex;
+    flex-direction: column;
+    /* top: 10vh; */
+    bottom: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: antiquewhite;
-    padding: 10%;
+    /* padding: 10vh; */
+
+}
+.cartHeaderTitle{
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1.8rem;
+    color: black;
+    margin-top: 130px;
+    text-align: center;
+    text-shadow: 2px 2px 2px white;
 
 }
 
 .cartItemsContainer{
-    padding:38vh 40vw;
+    width: 75%;
+    height: 70%;
+    padding-top: 20px;
+    margin-bottom: 6vh;
     background-color: tomato;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    /* justify-content: space-around; */
+}
+.cartItemsHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* font-family: 'Press Start 2P', sans-serif; */
+    font-size:1.5rem;
+    /* font-weight: bold; */
+    background-color: brown;
+    border-bottom: 1px solid black;
+    border-bottom-style:ridge;
 }
