@@ -31,15 +31,16 @@
 }
 
 .cartItemsContainer{
+    display: grid;
+    grid-template-columns: 5fr;
+    grid-template-rows: 6fr;
     width: 75%;
     height: 70%;
     padding-top: 20px;
     margin-bottom: 6vh;
     background-color: tomato;
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  
     scroll-behavior: smooth;
     overflow-y: scroll;
     /* justify-content: space-around; */
