@@ -75,13 +75,12 @@
 }
 
 
-.registerContainer {
-	display: flex;
-	margin-bottom: 10px;
-	border-top: 0.5px lightgray solid;
-}
-
 .connexionSection {
+	display: flex;
+	align-items: space-between;
+  justify-content: space-between;
+} 
+.registerSection {
 	display: flex;
 	align-items: space-between;
   justify-content: space-between;
