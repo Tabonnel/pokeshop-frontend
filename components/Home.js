@@ -56,7 +56,7 @@ function Home() {
           <img src="/background-home.jpg" className={styles.backgroundImage} />
         </div>
         <div>
-          <h1 className={`${styles.title} ${styles.pressStartFont}`}>
+          <h1 className={styles.title}>
             Poke Shop
           </h1>
           <div className={styles.pokemonGrid} id="scrollPoint">
