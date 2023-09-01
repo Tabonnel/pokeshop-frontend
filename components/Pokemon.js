@@ -76,11 +76,13 @@ function Pokemon({ name, type, image, price, stock, number }) {
 
   return (
     <Tilt
-      glareEnable={true}
+      glareEnable={false}
       tiltMaxAngleX={20}
       tiltMaxAngleY={20}
       perspective={10000}
-      glareColor={"rgb(255,0,0)"}
+      glareColor={"rgba(250,250,250,0.3)"}
+      glareBorderRadius="6px"
+      scale={1.2}
     >
       <div className={styles.cardWrapper}>
         <div

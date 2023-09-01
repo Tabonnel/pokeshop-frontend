@@ -28,6 +28,8 @@ function Header() {
     setIsModalVisible(!isModalVisible);
   };
 
+  console.log(user);
+
   const handleRegister = () => {
     fetch("http://localhost:3000/users/signup", {
       method: "POST",
@@ -61,8 +63,8 @@ function Header() {
           dispatch(
             login({
               email: signInEmail,
-              token: data.token,
-              username: data.username,
+              token: data.data.token,
+              username: data.data.username,
             })
           );
           setSignInEmail("");
@@ -72,11 +74,34 @@ function Header() {
       });
   };
 
-  let modalContent;
-  //ajouter if !user.token quand il y aura les reducers ET IF USER.TOKEN logout
-  modalContent = (
+  let modalContentConnexion;
+
+  modalContentConnexion = (
+    <div className={styles.connexionSection}>
+      <input
+        type="text"
+        placeholder="Email"
+        id="signInEmail"
+        onChange={(e) => setSignInEmail(e.target.value)}
+        value={signInEmail}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        id="signInPassword"
+        onChange={(e) => setSignInPassword(e.target.value)}
+        value={signInPassword}
+      />
+      <button id="connection" onClick={() => handleConnection()}>
+        Connect
+      </button>
+    </div>
+  );
+
+  let modalContentResgister;
+
+  modalContentResgister = (
     <div className={styles.registerContainer}>
-      <FontAwesomeIcon onClick={showModal} icon={faXmark} />
       <div className={styles.registerSection}>
         <p>Sign-up</p>
         <input
@@ -102,26 +127,6 @@ function Header() {
         />
         <button id="register" onClick={() => handleRegister()}>
           Register
-        </button>
-      </div>
-      <div className={styles.registerSection}>
-        <p>Sign-in</p>
-        <input
-          type="text"
-          placeholder="Email"
-          id="signInEmail"
-          onChange={(e) => setSignInEmail(e.target.value)}
-          value={signInEmail}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          id="signInPassword"
-          onChange={(e) => setSignInPassword(e.target.value)}
-          value={signInPassword}
-        />
-        <button id="connection" onClick={() => handleConnection()}>
-          Connect
         </button>
       </div>
     </div>
@@ -162,7 +167,7 @@ function Header() {
         {user.token ? (
           <div className={styles.logoutSection}>
             {/* <p>Welcome {user.username} / </p> */}
-            <button onClick={() => dispatch(logout())}>Logout</button>
+            <span onClick={() => dispatch(logout())}>Logout</span>
           </div>
         ) : (
           <FontAwesomeIcon icon={faUser} size="lg" onClick={showModal} />
@@ -170,19 +175,23 @@ function Header() {
         <FontAwesomeIcon icon={faHeart} size="lg" />
         <FontAwesomeIcon icon={faShoppingCart} size="lg" />
       </div>
-      {isModalVisible && (
-        <div id="react-modals">
-          <Modal
-            getContainer="#react-modals"
-            className={styles.modal}
-            open={isModalVisible}
-            closable={false}
-            footer={null}
-          >
-            {modalContent}
-          </Modal>
-        </div>
-      )}
+
+      <Modal
+        title="Sign In"
+        open={isModalVisible}
+        footer=""
+        closable={false}
+        mask={true}
+      >
+        <button
+          className={styles.closeButton}
+          onClick={() => setIsModalVisible(false)}
+        >
+          <FontAwesomeIcon icon={faXmark} size="lg" />
+        </button>
+
+        {modalContentConnexion}
+      </Modal>
     </header>
   );
 }
