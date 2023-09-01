@@ -168,7 +168,9 @@ function Header() {
           <FontAwesomeIcon icon={faUser} size="lg" onClick={showModal} />
         )}
         <FontAwesomeIcon icon={faHeart} size="lg" />
-        <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+        <Link href="/Cart">
+        <FontAwesomeIcon  cursor="pointer" icon={faShoppingCart} size="lg" />
+        </Link>
       </div>
       {isModalVisible && (
         <div id="react-modals">

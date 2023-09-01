@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import { removeFromCart } from "../reducers/cart";
+import { decrementFromCart, removeFromCart } from "../reducers/cart";
 import { useRouter } from "next/router";
 import { Modal } from "antd";
 
@@ -31,7 +31,7 @@ function Cart() {
     });
     setCartData(CartData);
  
-  }, []);
+  }, [cart]);
 
   return (
     <div className={styles.body}>
