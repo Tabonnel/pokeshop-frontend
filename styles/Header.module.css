@@ -10,7 +10,6 @@
   font-size: 20px;
   position: fixed;
   z-index: 1;
-  
 }
 .menu {
   display: flex;
@@ -66,6 +65,13 @@
   align-items: center;
   justify-content: space-between;
   width: 7rem;
+  
+}
+
+.iconsLink{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 }
 
 

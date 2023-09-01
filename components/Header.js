@@ -82,9 +82,12 @@ function Header() {
         />
       </div>
       <div className={styles.icons}>
-        <FontAwesomeIcon icon={faUser} size="lg" onClick={showModal}/>
-        <FontAwesomeIcon icon={faHeart} size="lg" />
-        <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+        <FontAwesomeIcon icon={faUser} size="lg"className={styles.iconsLink} onClick={showModal}/>
+        <FontAwesomeIcon icon={faHeart} size="lg" className={styles.iconsLink}/>
+        <Link href="/Cart">
+
+        <FontAwesomeIcon icon={faShoppingCart} size="lg" href="/Cart" className={styles.iconsLink} />
+        </Link>
       </div>
       {isModalVisible && <div id="react-modals">
         <Modal getContainer="#react-modals" className={styles.modal} open={isModalVisible} closable={false} footer={null}>

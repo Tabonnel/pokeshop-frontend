@@ -2,6 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "../styles/Pokemon.module.css";
 import React from "react";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../reducers/cart";
+
 
 function Pokemon({ name, type, image, price, stock, number }) {
 
@@ -51,6 +54,15 @@ function Pokemon({ name, type, image, price, stock, number }) {
       break;
   }
 
+
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.value);
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ name, type, image, price, stock, number }));
+  };
+
+
   return (
     <div className={styles.cardContainer} style={pokemonTypeStyle}>
       <div className={styles.infosCard} style={pokemonTypeStyle}>
@@ -73,6 +85,7 @@ function Pokemon({ name, type, image, price, stock, number }) {
           icon={faShoppingCart}
           size="lg"
           className={styles.toCartBtn}
+          onClick={() => handleAddToCart()}
         />
       </div>
     </div>
