@@ -1,5 +1,5 @@
 import styles from "../styles/Cart.module.css";
-import Header from "../components/Header";
+import Nav from "./Nav";
 import CartItem from "../components/CartItem";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,7 +34,7 @@ function Cart() {
 
   return (
     <div className={styles.body}>
-      <Header></Header>
+      <Nav/>
       <div className={styles.cartContainer}>
         <div className={styles.cartHeader}>
           <p className={styles.cartHeaderTitle}>Panier</p>
@@ -44,9 +44,6 @@ function Cart() {
           <div className={styles.cartItemsHeader}>
             <div className={styles.cartItemsHeaderName}>
               <p>Carte</p>
-            </div>
-            <div className={styles.cartItemsHeaderType}>
-              <p>Type</p>
             </div>
             <div className={styles.cartItemsHeaderPrice}>
               <p>Prix</p>
@@ -59,23 +56,10 @@ function Cart() {
             </div>
           </div>
           {cartData.length > 0 ? (
-            cartData
+            <div className={styles.cartItems}>{cartData}</div>
           ) : (
             <div className={styles.emptyCartContainer}>
               <p className={styles.emptyCartText}>Votre panier est vide</p>
-            </div>
-          )}
-
-          {cartData.length > 0 ? (
-            ""
-          ) : (
-            <div className={styles.cartItemsFooter}>
-              <div className={styles.cartItemsFooterTotal}>
-                <p>Total</p>
-              </div>
-              <div className={styles.cartItemsFooterPrice}>
-                <p>€</p>
-              </div>
             </div>
           )}
         </div>

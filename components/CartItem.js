@@ -1,6 +1,6 @@
 import styles from "../styles/CartItem.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { decrementFromCart, addToCart, removeFromCart } from "../reducers/cart";
 import { useState, useEffect } from "react";
@@ -22,18 +22,18 @@ function CartItem({ name, type, image, price, stock, number, quantity }) {
     }
   }, [cart, name]);
 
-  // console.log("quantityItem", quantityItem);
-  // console.log("cart.quantity", cart.quantity);
+  const total = price * quantityItem;
 
   return (
     <div className={styles.cartItemContainer}>
       <div className={styles.cartItem}>
-        <img src={image} className={styles.cartItemImage} />
-        <div className={styles.cartItemInfo}>
+        <div className={styles.cartItemCard}>
+          <img src={image} className={styles.cartItemImage} />
           <p className={styles.cartItemName}>{name}</p>
-          <p className={styles.cartItemType}>{type}</p>
-          <p className={styles.cartItemPrice}>{price}€</p>
         </div>
+
+        <div className={styles.cartItemPrice}>{price}€</div>
+
         <div className={styles.cartItemQuantity}>
           <p
             className={styles.cartItemQuantityMinus}
@@ -48,8 +48,27 @@ function CartItem({ name, type, image, price, stock, number, quantity }) {
                   number,
                   quantity,
                 })
-              ),
-                console.log("quantity - 1 ", {
+              );
+            }}
+          >
+            <FontAwesomeIcon icon={faMinus} cursor="pointer" />
+          </p>
+          <p className={styles.cartItemQuantityText}> {quantityItem} </p>
+          <p
+            className={styles.cartItemQuantityPlus}
+            onClick={() => {
+              dispatch(
+                addToCart({ name, type, image, price, stock, number, quantity })
+              );
+            }}
+          >
+            <FontAwesomeIcon icon={faPlus} cursor="pointer" />
+          </p>
+          <div
+            className={styles.cartItemDelete}
+            onClick={() => {
+              dispatch(
+                removeFromCart({
                   name,
                   type,
                   image,
@@ -57,51 +76,20 @@ function CartItem({ name, type, image, price, stock, number, quantity }) {
                   stock,
                   number,
                   quantity,
-                });
+                })
+              );
+              console.log("cart");
             }}
           >
-            {" "}
-            -{" "}
-          </p>
-          <p className={styles.cartItemQuantity}> {quantityItem} </p>
-          <p
-            className={styles.cartItemQuantityPlus}
-            onClick={() => {
-              dispatch(
-                addToCart({ name, type, image, price, stock, number, quantity })
-              ),
-                console.log("quantity + 1 ");
-            }}
-          >
-            {" "}
-            +
-          </p>
+            <FontAwesomeIcon
+              icon={faTrashAlt}
+              className={styles.cartItemDeleteIcon}
+              cursor={"pointer"}
+            />
+          </div>
         </div>
         <div className={styles.cartItemTotal}>
-          <p className={styles.cartItemTotalTotal}>X total</p>
-        </div>
-        <div
-          className={styles.cartItemDelete}
-          onClick={() => {
-            dispatch(
-              removeFromCart({
-                name,
-                type,
-                image,
-                price,
-                stock,
-                number,
-                quantity,
-              })
-            );
-            console.log("cart");
-          }}
-        >
-          <FontAwesomeIcon
-            icon={faTrashAlt}
-            className={styles.cartItemDeleteIcon}
-            cursor={"pointer"}
-          />
+          <p className={styles.cartItemTotalTotal}>{total} €</p>
         </div>
       </div>
     </div>

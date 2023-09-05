@@ -98,3 +98,12 @@
   height: 100%;
   color: beige;
 }
+
+.filterContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+ 
+}
