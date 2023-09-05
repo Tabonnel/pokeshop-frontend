@@ -1,5 +1,6 @@
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
+import Nav from "../components/Nav";
 import React from "react";
 import Pokemon from "../components/Pokemon";
 import { useState, useEffect } from "react";
@@ -50,7 +51,8 @@ function Home() {
 
   return (
     <div>
-      <Header></Header>
+      {/* <Header></Header> */}
+      <Nav></Nav>
       <main className={styles.main}>
         <div className={styles.backgroundContainer}>
           <img src="/background-home.jpg" className={styles.backgroundImage} />

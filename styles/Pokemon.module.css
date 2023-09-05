@@ -5,7 +5,7 @@
 	border-radius: 8px;
 	box-shadow: 0px 5px 5px rgba(255, 255, 255, 0.3);
 	transition: box-shadow 0.5s;
-	margin: 50px
+	margin: 20px
   }
   
   .cardWrapper:hover {
@@ -13,7 +13,7 @@
   }
   
   .card {
-	width: 256px;
+	width: 231px;
 	height: 400px;
 	padding: 0 20px 0 20px;
 	display: flex;
