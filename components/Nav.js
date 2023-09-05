@@ -233,7 +233,9 @@ function Nav() {
           </Modal>
         </li>
         <li className={`${styles.navBarItem} ${styles.slideInDown4}`}>
-          <span>WhisList</span>
+        <Link href="/WishList">
+            <span onClick={handleShowLinks}>WishList</span>
+          </Link>
         </li>
         <li className={`${styles.navBarItem} ${styles.slideInDown5}`}>
           <Link href="/Cart">

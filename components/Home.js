@@ -22,6 +22,7 @@ function Home() {
     );
   }, []);
 
+   
   useEffect(() => {
     AOS.init({
       duration: 3000,
@@ -30,6 +31,7 @@ function Home() {
   const Pokemons = pokemonData.map((data) => {
     return (
       <Pokemon
+        id={data._id}
         key={data._id}
         name={data.name}
         type={data.type}

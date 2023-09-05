@@ -1,12 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { SmileOutlined } from '@ant-design/icons';
 import styles from "../styles/Pokemon.module.css";
 import React from "react";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../reducers/cart";
 import Tilt from "react-parallax-tilt";
+import { notification } from "antd";
 
-function Pokemon({ name, type, image, price, stock, number }) {
+function Pokemon({ name, type, image, price, stock, number, id }) {
   let pokemonTypeStyle = {};
   switch (type) {
     case "normal":
@@ -67,11 +69,40 @@ function Pokemon({ name, type, image, price, stock, number }) {
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.value);
-
- 
+  const user = useSelector((state) => state.user.value);
 
   const handleAddToCart = () => {
     dispatch(addToCart({ name, type, image, price, stock, number }));
+  };
+
+  const handleAddToWishList = () => {
+    fetch(`http://localhost:3000/users/${user.token}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pokemonId: id, name, type, image, price, number  }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.result);
+        if (data.result) {
+          addtoWL();
+        }
+      });
+  };
+
+  const addtoWL = () => {
+    notification.open({
+      icon: (
+        <SmileOutlined
+          style={{
+            color: "#108ee9",
+          }}
+        />
+      ),
+      message: "Added to WishList",
+      description:
+        "The card has been successfully added to your wishlist Find it in the wishlist tab",
+    });
   };
 
   return (
@@ -115,6 +146,11 @@ function Pokemon({ name, type, image, price, stock, number }) {
                 className={styles.toCartBtn}
                 onClick={() => handleAddToCart()}
               />
+              {user.token ? (
+                <FontAwesomeIcon icon={faHeart} onClick={handleAddToWishList} className={styles.toCartBtn} />
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
