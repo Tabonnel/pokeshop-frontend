@@ -72,7 +72,7 @@ function Pokemon({ name, type, image, price, stock, number, id }) {
   const user = useSelector((state) => state.user.value);
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ name, type, image, price, stock, number }));
+    dispatch(addToCart({ name, type, image, price, stock, number, id }));
   };
 
   const handleAddToWishList = () => {
