@@ -14,6 +14,8 @@ import {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log("STRIPE", stripe)
+
   useEffect(() => {
     if (!stripe) {
       return;
@@ -22,6 +24,8 @@ import {
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
+
+    console.log("clientsecre", clientSecret)
 
     if (!clientSecret) {
       return;
