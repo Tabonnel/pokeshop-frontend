@@ -1,9 +1,9 @@
-#root {
+/* #root {
     display: flex;
     align-items: center;
   }
   
-  body {
+  .body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
@@ -38,7 +38,7 @@
   }
   
   /* Buttons and links */
-  button {
+  /* button {
     background: #5469d4;
     font-family: Arial, sans-serif;
     color: #ffffff;
@@ -62,9 +62,9 @@
     opacity: 0.5;
     cursor: default;
   }
-  
+   */
   /* spinner/processing state, errors */
-  .spinner,
+  /* .spinner,
   .spinner:before,
   .spinner:after {
     border-radius: 50%;
@@ -132,4 +132,4 @@
       width: 80vw;
       min-width: initial;
     }
-  }
+  }  */

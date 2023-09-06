@@ -10,7 +10,7 @@ import styles from "../styles/Payment.module.css";
 // This is your test publishable API key.
 const stripePromise = loadStripe("pk_test_51NnHJNAXuT8fKfgDOxrM5bCUpG235ys6dlyNKjsFCpKsuiplpeQbXY3WIY2ZnTFWbJ7tSJTnuhfiuqqFcYxBOsxB00d0jfFz9t");
 
-export default function App() {
+ function Payment() {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
@@ -46,3 +46,5 @@ export default function App() {
     </div>
   );
 }
+
+export default Payment

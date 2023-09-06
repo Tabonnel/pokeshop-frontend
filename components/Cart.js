@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { decrementFromCart, removeFromCart } from "../reducers/cart";
 import { useRouter } from "next/router";
 import { Modal } from "antd";
+import Link from "next/link";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function Cart() {
 
   return (
     <div className={styles.body}>
-      <Nav/>
+      <Nav />
       <div className={styles.cartContainer}>
         <div className={styles.cartHeader}>
           <p className={styles.cartHeaderTitle}>Panier</p>
@@ -63,6 +64,9 @@ function Cart() {
             </div>
           )}
         </div>
+        <Link href="/Payment">
+          <button>Valider et payer</button>
+        </Link>
       </div>
     </div>
   );
