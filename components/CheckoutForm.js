@@ -60,11 +60,13 @@ import {
 
     setIsLoading(true);
 
+    console.log("isloadind", isLoading)
+
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
+        return_url: "http://localhost:3001/Payment",
       },
     });
 
@@ -79,8 +81,11 @@ import {
       setMessage("An unexpected error occurred.");
     }
 
+    
     setIsLoading(false);
   };
+
+  console.log("message", message)
 
   const paymentElementOptions = {
     layout: "tabs"
