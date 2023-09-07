@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 .main {
   display: flex;
@@ -6,40 +6,131 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: black;
+  background-color: antiquewhite;
   padding-top: 10vh;
 }
 .body {
   scroll-behavior: smooth;
 }
 
-.backgroundContainer {
+.homeImgContainer {
   height: 90vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 100px;
 }
 
-.backgroundImage {
-  height: 90%;
-  width: 100%;
+.titleImage {
+  height: 400px;
+  width: 600px;
   object-fit: cover;
   object-position: center;
   top: 0;
+}
+
+.titleContainer {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokeImgContainer {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  justify-content: center;
+ 
+}
+
+/* Définition de l'animation pour l'apparition */
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Appliquer l'animation aux images */
+.poke1 {
+  animation: appear 2s ease-in-out 0s ;
+}
+
+.poke2 {
+  animation: appear 3s ease-in-out 0s ;
+}
+
+.poke3 {
+  animation: appear 4s ease-in-out 0s ;
+}
+
+.poke4 {
+  animation: appear 5s ease-in-out 0s;
+}
+
+
+@media screen and (max-width: 1400px) {
+  .poke4 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .poke3 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .poke1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .titleImage {
+    height: 200px;
+    width: 300px;
+  }
+  .poke2 {
+    height: 200px;
+    width: 250px;
+  }
+}
+
+.shopContainer {
+  padding-top: 70px;
 }
 .scrollLink {
   text-decoration: none;
 }
 
 .title {
-    letter-spacing: 2.5px;
-    font-size: 30px;
-    border: 6px double black;
-    padding: 8px 10px;
-    margin: 30px 30% 0px 30%;
-    border-radius: 5px;
-    background:white;
-    line-height: 1.8;
-    text-align: center;
-    font-family: 'Press Start 2P';
+  letter-spacing: 2.5px;
+  font-size: 30px;
+  border: 6px double black;
+  min-width: 160px;
+  padding: 8px 10px;
+  margin: 30px 30% 0px 30%;
+  border-radius: 5px;
+  background: white;
+  line-height: 1.8;
+  text-align: center;
+  font-weight: 600;
+  font-family: "Press Start 2P", sans-serif;
+  text-shadow: 2px 2px 2px antiquewhite;
+  box-shadow: 3px 3px 3px black ;
 }
 
 .pokemonGrid {
@@ -49,7 +140,6 @@
   /* padding-top: 10vh; */
 
   /* valeurs supprimées pour le responsive à voir avec adrien. */
-
 
   /* margin-left: 10px; */
   /* margin-right: 10px; */
@@ -77,7 +167,6 @@
   color: beige;
 }
 
-
 .scrollButton {
   position: fixed;
   bottom: 0;
@@ -99,11 +188,10 @@
   color: beige;
 }
 
-.filterContainer{
+.filterContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   width: 100%;
- 
 }

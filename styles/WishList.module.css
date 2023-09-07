@@ -1,3 +1,27 @@
+.body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+ 
+  background-color: antiquewhite;
+}
+
+.whishListContainer {
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  
+}
+.whishListHeaderTitle {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.8rem;
+  color: black;
+  margin-top: 120px;
+  text-align: center;
+  text-shadow: 2px 2px 2px white;
+}
 
 .pokemonGrid {
     display: flex;

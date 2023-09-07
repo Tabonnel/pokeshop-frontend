@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined, HeartOutlined } from '@ant-design/icons';
 import styles from "../styles/Pokemon.module.css";
 import React from "react";
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -66,6 +66,8 @@ function Pokemon({ name, type, image, price, stock, number, id }) {
       pokemonTypeStyle.backgroundColor = "#B2B2B2";
       break;
   }
+  
+  
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.value);
@@ -73,6 +75,7 @@ function Pokemon({ name, type, image, price, stock, number, id }) {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ name, type, image, price, stock, number, id }));
+    addToCartNotification();
   };
 
   const handleAddToWishList = () => {
@@ -90,10 +93,25 @@ function Pokemon({ name, type, image, price, stock, number, id }) {
       });
   };
 
-  const addtoWL = () => {
+  const addToCartNotification = () => {
     notification.open({
       icon: (
         <SmileOutlined
+          style={{
+            color: "#108ee9",
+          }}
+        />
+      ),
+      message: "Added to Cart",
+      description:
+        "The card has been successfully added to your cart. View your cart in the cart tab",
+    });
+  };
+
+  const addtoWL = () => {
+    notification.open({
+      icon: (
+        <HeartOutlined
           style={{
             color: "#108ee9",
           }}
@@ -107,7 +125,7 @@ function Pokemon({ name, type, image, price, stock, number, id }) {
 
   return (
     <Tilt
-      glareEnable={true}
+      glareEnable={false}
       glareMaxOpacity={0.3}
       tiltMaxAngleX={20}
       tiltMaxAngleY={20}
@@ -157,33 +175,6 @@ function Pokemon({ name, type, image, price, stock, number, id }) {
       </div>
     </Tilt>
   );
-
-  // <div className={styles.cardContainer} style={pokemonTypeStyle}>
-  //   <div className={styles.infosCard} style={pokemonTypeStyle}>
-  //     <div className={styles.imgContainer}>
-  //       <img src={image} alt={name} className={styles.imgPokemon}/>
-  //     </div>
-  //     <div className={styles.info}>
-  //       <h3 className={styles.name}>{name}</h3>
-  //       <span className={styles.type}>
-  //         Type: <span>{type}</span>
-  //       </span>
-  //     </div>
-  //   </div>
-  //   <div className={styles.bottomInfos}>
-  //     <div className={styles.priceCard}>
-  //       <span className={styles.priceText}></span>
-  //       <span className={styles.priceValue}> {price} €</span>
-  //     </div>
-  //     <FontAwesomeIcon
-  //       icon={faShoppingCart}
-  //       size="lg"
-  //       className={styles.toCartBtn}
-  //       onClick={() => handleAddToCart()}
-  //     />
-  //   </div>
-  // </div>
-  // );
 }
 
 export default Pokemon;

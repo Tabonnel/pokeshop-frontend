@@ -26,6 +26,7 @@
     "react-scroll": "^1.8.9",
     "react-select": "^5.7.4",
     "redux-persist": "^6.0.0",
+    "styled-components": "^6.0.7",
     "yarn": "^1.22.19"
   },
   "devDependencies": {

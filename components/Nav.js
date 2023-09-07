@@ -6,6 +6,8 @@ import { login, logout } from "../reducers/user";
 import { Modal, Popover } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import Button from "./Button";
+import OutlineButton from "./Button";
 
 function Nav() {
   const dispatch = useDispatch();
@@ -19,6 +21,30 @@ function Nav() {
   const [signUpPassword, setSignUpPassword] = useState("");
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
+  const [open, setOpen] = useState(false);
+
+  // Ouverture Popover
+
+  const hide = () => {
+    setOpen(false);
+  };
+  const handleOpenChange = (newOpen) => {
+    setOpen(newOpen);
+  };
+
+  const handleOpenModalSgnIn = () => {
+    setIsModalConnexionVisible(true)
+    setShowLinks(false)
+    setOpen(false)
+    
+  }
+
+  const handleOpenModalSgnup = () => {
+    setIsModalRegisterVisible(true)
+    setShowLinks(false)
+    setOpen(false)
+    
+  }
 
   // boutons ouverture du menu hamburger
 
@@ -82,17 +108,18 @@ function Nav() {
   };
 
   const popoverContent = (
+    
     <div className={styles.popoverContainer}>
-      <button onClick={() => setIsModalConnexionVisible(true)} className={`${styles.btn} ${styles.btn2} ${styles.btn3}`}>
+      <FontAwesomeIcon icon={faXmark} size="lg"onClick={hide} style={{ cursor: 'pointer' }} />
+      <Button onClick={() => {handleOpenModalSgnIn()}}>
         <span className={styles.btnSpan}>Sign In</span>
-      </button>
-      <button onClick={() => setIsModalRegisterVisible(true)}>Sign Up</button>
+      </Button>
+      <OutlineButton onClick={() => {handleOpenModalSgnup()}}>
+        Sign Up
+      </OutlineButton>
     </div>
   );
 
-  <button class="btn btn-2 hover-slide-right">
-    <span>hover me</span>
-  </button>;
   // contenu modal connexion
 
   let modalContentConnexion;
@@ -113,9 +140,9 @@ function Nav() {
         onChange={(e) => setSignInPassword(e.target.value)}
         value={signInPassword}
       />
-      <button id="connection" onClick={() => handleConnection()}>
+      <Button id="connection" onClick={() => handleConnection()}>
         Connect
-      </button>
+      </Button>
     </div>
   );
 
@@ -146,9 +173,9 @@ function Nav() {
         onChange={(e) => setSignUpPassword(e.target.value)}
         value={signUpPassword}
       />
-      <button id="register" onClick={() => handleRegister()}>
+      <Button id="register" onClick={() => handleRegister()}>
         Register
-      </button>
+      </Button>
     </div>
   );
 
@@ -191,7 +218,12 @@ function Nav() {
               <span onClick={() => dispatch(logout())}>Logout</span>
             </div>
           ) : (
-            <Popover content={popoverContent} zIndex={0}>
+            <Popover
+              content={popoverContent}
+              trigger="click"
+              open={open}
+              onOpenChange={handleOpenChange}
+            >
               <span>Login</span>
             </Popover>
           )}
@@ -233,7 +265,7 @@ function Nav() {
           </Modal>
         </li>
         <li className={`${styles.navBarItem} ${styles.slideInDown4}`}>
-        <Link href="/WishList">
+          <Link href="/WishList">
             <span onClick={handleShowLinks}>WishList</span>
           </Link>
         </li>

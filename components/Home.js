@@ -12,6 +12,7 @@ import "aos/dist/aos.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
+
 function Home() {
   const [pokemonData, setPokemonData] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
@@ -53,7 +54,7 @@ function Home() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/pokemons").then((response) =>
+    fetch("http://localhost:3000/pokemons/first150").then((response) =>
       response.json().then((data) => {
         setPokemonData(data);
         console.log(data[0]);
@@ -101,10 +102,20 @@ function Home() {
       {/* <Header></Header> */}
       <Nav></Nav>
       <main className={styles.main}>
-        <div className={styles.backgroundContainer}>
-          <img src="/background-home.jpg" className={styles.backgroundImage} />
+        <div className={styles.homeImgContainer}>
+          <div className={styles.titleContainer}>
+          <img src="/titre.png" className={styles.titleImage} />
+          </div>
+          <div className={styles.pokeImgContainer}>
+          <img src="/salameche.png" className={styles.poke1} />
+          <img src="/pikachu.png" className={styles.poke2} />
+          <img src="/carapuce.png" className={styles.poke3} />
+          <img src="/bulbizare.png" className={styles.poke4} />
+          </div>
+
+          
         </div>
-        <div>
+        <div className={styles.shopContainer}>
           <h1 className={styles.title}>Poke Shop</h1>
           <div className={styles.filterContainer}>
             <Filter onFilterChange={handleFilterChange}></Filter>

@@ -4,7 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { useDispatch, useSelector } from "react-redux";
 
 import CheckoutForm from "../components/CheckoutForm";
-import styles from "../styles/Payment.module.css";
+
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -29,7 +29,7 @@ function Payment() {
       .then((data) => setClientSecret(data.clientSecret));
   }, []);
 
-  console.log(clientSecret)
+//   console.log(clientSecret)
 
   const appearance = {
     theme: "stripe",
@@ -45,7 +45,6 @@ function Payment() {
 
   return (
     <div className="App">
-      <div>OK</div>
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
           <CheckoutForm />

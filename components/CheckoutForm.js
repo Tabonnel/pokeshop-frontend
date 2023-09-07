@@ -5,6 +5,7 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
+import styles from "../styles/Payment.module.css"
 
  function CheckoutForm() {
   const stripe = useStripe();
@@ -13,8 +14,9 @@ import {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  
 
-  console.log("STRIPE", stripe)
+//   console.log("STRIPE", stripe)
 
   useEffect(() => {
     if (!stripe) {
@@ -25,7 +27,7 @@ import {
       "payment_intent_client_secret"
     );
 
-    console.log("clientsecre", clientSecret)
+    // console.log("clientsecre", clientSecret)
 
     if (!clientSecret) {
       return;
@@ -60,7 +62,7 @@ import {
 
     setIsLoading(true);
 
-    console.log("isloadind", isLoading)
+    // console.log("isloadind", isLoading)
 
     const { error } = await stripe.confirmPayment({
       elements,
@@ -92,18 +94,19 @@ import {
   }
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <LinkAuthenticationElement
         id="link-authentication-element"
         onChange={(e) => setEmail(e.target.value)}
+        value={email}
       />
       <PaymentElement id="payment-element" options={paymentElementOptions} />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
+      <button className={styles.button} disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+          {isLoading ? <div className={styles.spinner} id="spinner"></div> : "Pay now"}
         </span>
       </button>
-      {/* Show any error or success messages */}
+      {/* Afficher les messages d'erreur ou de réussite */}
       {message && <div id="payment-message">{message}</div>}
     </form>
   );

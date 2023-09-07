@@ -9,6 +9,7 @@ import { decrementFromCart, removeFromCart } from "../reducers/cart";
 import { useRouter } from "next/router";
 import { Modal } from "antd";
 import Link from "next/link";
+import Button from "./Button";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -65,7 +66,7 @@ function Cart() {
           )}
         </div>
         <Link href="/Payment">
-          <button>Valider et payer</button>
+          <Button>Valider et payer</Button>
         </Link>
       </div>
     </div>
