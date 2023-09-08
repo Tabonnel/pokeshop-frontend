@@ -33,18 +33,16 @@ function Nav() {
   };
 
   const handleOpenModalSgnIn = () => {
-    setIsModalConnexionVisible(true)
-    setShowLinks(false)
-    setOpen(false)
-    
-  }
+    setIsModalConnexionVisible(true);
+    setShowLinks(false);
+    setOpen(false);
+  };
 
   const handleOpenModalSgnup = () => {
-    setIsModalRegisterVisible(true)
-    setShowLinks(false)
-    setOpen(false)
-    
-  }
+    setIsModalRegisterVisible(true);
+    setShowLinks(false);
+    setOpen(false);
+  };
 
   // boutons ouverture du menu hamburger
 
@@ -108,13 +106,25 @@ function Nav() {
   };
 
   const popoverContent = (
-    
     <div className={styles.popoverContainer}>
-      <FontAwesomeIcon icon={faXmark} size="lg"onClick={hide} style={{ cursor: 'pointer' }} />
-      <Button onClick={() => {handleOpenModalSgnIn()}}>
+      <FontAwesomeIcon
+        icon={faXmark}
+        size="lg"
+        onClick={hide}
+        style={{ cursor: "pointer" }}
+      />
+      <Button
+        onClick={() => {
+          handleOpenModalSgnIn();
+        }}
+      >
         <span className={styles.btnSpan}>Sign In</span>
       </Button>
-      <OutlineButton onClick={() => {handleOpenModalSgnup()}}>
+      <OutlineButton
+        onClick={() => {
+          handleOpenModalSgnup();
+        }}
+      >
         Sign Up
       </OutlineButton>
     </div>
@@ -186,7 +196,13 @@ function Nav() {
       }`}
     >
       <div className={styles.navBarLogo}>
-        <img src="./pokeball-logo.png" alt="logo" className={styles.logoImg} />
+        <Link href="/">
+          <img
+            src="./pokeball-logo.png"
+            alt="logo"
+            className={`${styles.logoImg} ${styles.rotateOnHover}`}
+          />
+        </Link>
       </div>
       <ul className={styles.navBarLinks}>
         <li className={`${styles.navBarItem} ${styles.slideInDown1}`}>

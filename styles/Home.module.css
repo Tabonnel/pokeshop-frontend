@@ -100,12 +100,13 @@
 
 @media screen and (max-width: 545px) {
   .titleImage {
-    height: 200px;
-    width: 300px;
+    height: 250px;
+    width: 400px;
   }
   .poke2 {
     height: 200px;
     width: 250px;
+    padding-left: 60px;
   }
 }
 

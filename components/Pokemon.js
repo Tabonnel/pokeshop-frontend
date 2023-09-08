@@ -165,7 +165,7 @@ function Pokemon({ name, type, image, price, stock, number, id }) {
                 onClick={() => handleAddToCart()}
               />
               {user.token ? (
-                <FontAwesomeIcon icon={faHeart} onClick={handleAddToWishList} className={styles.toCartBtn} />
+                <FontAwesomeIcon icon={faHeart} onClick={handleAddToWishList} className={styles.toCartBtn} size="lg" />
               ) : (
                 ""
               )}

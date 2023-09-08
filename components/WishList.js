@@ -11,11 +11,14 @@ function WishList() {
   const [wishListData, setWishListData] = useState([]);
   const [isDataInWishList, setIsDataInWhisList] = useState(true);
 
+  console.log(isDataInWishList)
+
   useEffect(() => {
     if (user.token) {
       fetch(`http://localhost:3000/users/${user.token}`).then((response) =>
         response.json().then((data) => {
-          if (data.pokemon) {
+          
+          if (data.pokemons) {
             setWishListData(data.pokemons);
             console.log("ici", wishListData);
           } else {

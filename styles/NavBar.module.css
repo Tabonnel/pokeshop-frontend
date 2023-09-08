@@ -14,6 +14,7 @@
   z-index: 100;
   text-shadow: 2px 2px 2px antiquewhite;
   font-family: "Press Start 2P", sans-serif;
+  box-shadow: 3px 3px 3px black ;
 }
 
 .logoImg {
@@ -22,6 +23,12 @@
   margin-right: 1.5rem;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.rotateOnHover:hover {
+  transform: rotate(360deg); /* Rotation de 360 degrés */
+  transition: transform 0.5s; /* Animation de la transition */
+  cursor: pointer; /* Curseur indiquant qu'il est cliquable */
 }
 
 .navBarItem {
