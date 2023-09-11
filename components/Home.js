@@ -119,11 +119,7 @@ function Home() {
           <h1 className={styles.title}>Poke Shop</h1>
           <div className={styles.filterContainer}>
             <Filter onFilterChange={handleFilterChange}></Filter>
-            <Sort
-              onSortChange={handleSortChange}
-              filteredPokemons={filteredPokemons}
-              setSortedPokemons={setSortedPokemons}
-            ></Sort>
+            
           </div>
           <div className={styles.pokemonGrid} id="scrollPoint">
             {Pokemons}
