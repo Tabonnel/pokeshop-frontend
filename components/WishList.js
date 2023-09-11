@@ -15,7 +15,7 @@ function WishList() {
 
   useEffect(() => {
     if (user.token) {
-      fetch(`http://localhost:3000/users/${user.token}`).then((response) =>
+      fetch(`https://pokeshop-backend.vercel.app/users/${user.token}`).then((response) =>
         response.json().then((data) => {
           
           if (data.pokemons) {

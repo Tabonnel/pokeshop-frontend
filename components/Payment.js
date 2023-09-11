@@ -20,7 +20,7 @@ function Payment() {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:3000/payment/pay", {
+    fetch("https://pokeshop-backend.vercel.app/payment/pay", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items:  cart  }),

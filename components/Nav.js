@@ -60,7 +60,7 @@ function Nav() {
   // connexion : fetch du backend pour signin + dispatch
 
   const handleConnection = () => {
-    fetch("http://localhost:3000/users/signin", {
+    fetch("https://pokeshop-backend.vercel.app/users/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: signInEmail, password: signInPassword }),
@@ -85,7 +85,7 @@ function Nav() {
   // inscription : fetch du backend pour signup + dispatch
 
   const handleRegister = () => {
-    fetch("http://localhost:3000/users/signup", {
+    fetch("https://pokeshop-backend.vercel.app/users/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

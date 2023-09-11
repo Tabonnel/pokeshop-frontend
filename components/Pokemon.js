@@ -79,7 +79,7 @@ function Pokemon({ name, type, image, price, stock, number, id }) {
   };
 
   const handleAddToWishList = () => {
-    fetch(`http://localhost:3000/users/${user.token}`, {
+    fetch(`https://pokeshop-backend.vercel.app/users/${user.token}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ pokemonId: id, name, type, image, price, number  }),

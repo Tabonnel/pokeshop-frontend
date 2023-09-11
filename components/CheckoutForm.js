@@ -68,7 +68,7 @@ import styles from "../styles/Payment.module.css"
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3001/Payment",
+        return_url: "https://pokeshop-frontend.vercel.app/",
       },
     });
 
