@@ -210,11 +210,6 @@ function Nav() {
             <span onClick={handleShowLinks}>Home</span>
           </Link>
         </li>
-        <li className={`${styles.navBarItem} ${styles.slideInDown2}`}>
-          <Link href="#scrollPoint">
-            <span onClick={handleShowLinks}>Shop</span>
-          </Link>
-        </li>
         {/* <li className={styles.navBarItem}>
           <div className={styles.searchBar}>
             <div className={styles.searchIcon}>
