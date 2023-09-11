@@ -54,7 +54,7 @@ function Home() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3000/pokemons/first150").then((response) =>
+    fetch("https://vercel.com/tabonnel/pokeshop-backend/39kvte55uKBNiygwKRc4RENp5L4S/pokemons/first150").then((response) =>
       response.json().then((data) => {
         setPokemonData(data);
         console.log(data[0]);
