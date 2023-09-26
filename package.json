@@ -15,6 +15,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@stripe/react-stripe-js": "^2.1.2",
     "@stripe/stripe-js": "^2.1.2",
+    "@vercel/analytics": "^1.0.2",
     "add": "^2.0.6",
     "antd": "^5.8.5",
     "aos": "^2.3.4",

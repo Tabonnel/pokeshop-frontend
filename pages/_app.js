@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Provider } from 'react-redux';
 import { configureStore, combineReducers, miniSerializeError } from '@reduxjs/toolkit';
@@ -36,6 +37,7 @@ function App({ Component, pageProps }) {
         <title>Poke Shop</title>
       </Head>
       <Component {...pageProps} />
+      <Analytics />
       </PersistGate>
     </Provider>
   );
